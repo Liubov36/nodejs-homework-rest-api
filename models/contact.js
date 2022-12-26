@@ -1,6 +1,6 @@
 const { Schema, model } = require('mongoose');
 const Joi = require('joi');
-const { handleSchemaValidationErrors } = require('../helpers');
+const { hendleSchemaValidationError } = require('../helpers');
 
 const contactSchema = new Schema(
   {
@@ -34,7 +34,7 @@ const contactSchema = new Schema(
   }
 );
 
-contactSchema.post('save', handleSchemaValidationErrors);
+contactSchema.post('save', hendleSchemaValidationError);
 
 const addSchema = Joi.object({
   name: Joi.string().min(3).max(30).trim().required(),

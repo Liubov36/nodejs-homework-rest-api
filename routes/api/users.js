@@ -14,6 +14,10 @@ router.post('/login', validationBody(schemas.joiLoginSchema), ctrl.login);
 
 router.get('/current', auth, ctrl.getCurrent);
 
+router.get('/verify/:verificationToken', ctrl.verifyEmail);
+
+router.post('/verify', ctrl.reVerification);
+
 router.get('/logout', auth, ctrl.logout);
  
 router.patch('/avatars', auth, upload.single('avatar'), ctrl.updateAvatar);
